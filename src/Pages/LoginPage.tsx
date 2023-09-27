@@ -1,7 +1,8 @@
 import Input from '../components/Input.tsx';
-import LoginButton from '../components/LoginButton.tsx';
+import Btn from '../components/SubmitButton.tsx';
 import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
 import {GlobalStyle, Container, SignupContainer,HeadingPrimary, MutedText, GoogleButton, LineBreaker, SignUpForm, LoginWrapper, WelcomeContainer} from "./LoginPageStyles.tsx"
+import { Link } from 'react-router-dom';
 
 export default function LoginPage() {
   return (
@@ -25,9 +26,9 @@ export default function LoginPage() {
             <Input label='Username' type='text'iconTag={<FaUser/>} lenght={15}/>
             <Input label='Email' type='email' iconTag={<FaEnvelope/>}/>
             <Input label='Password' type='password' iconTag={<FaLock/>}/>
-            <LoginButton/>
+            <Btn>Login</Btn>
           </SignUpForm>
-          <MutedText>Not a member? <a href="$">Sign up</a></MutedText>
+          <MutedText>Not a member? <Link to={"/SignUp"}>Sign up</Link></MutedText>
         </SignupContainer>
         <WelcomeContainer>
           <h1>Welcome to <span>Planner Buddy!</span></h1>

@@ -1,10 +1,8 @@
-import { Fragment } from 'react'
-import LoginPage from './Pages/LoginPage'
+import { Fragment } from 'react';
 
 export default function App() {
   return (
     <Fragment>
-      <LoginPage/>
     </Fragment>
   )
 }

@@ -44,7 +44,7 @@ export const SignupContainer = styled.main`
 
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
   width: 50vw;
   padding: 0 10rem;
   align-items: flex-start;
@@ -64,6 +64,10 @@ export const HeadingPrimary = styled.h1`
   & span {
     color: #2196f3
   }
+
+  @media only screen and (max-width: 800px){
+    text-align:center;
+  }
 `
 export const MutedText = styled.p`
   color: #aaa;
@@ -73,43 +77,7 @@ export const MutedText = styled.p`
     text-decoration: none;
 }
 `
-export const GoogleButton = styled.a`
-  color: #222;
-  background: #fff;
-  border: solid 1px #eee;
-  border-radius: 1rem;
-  padding: 1.5rem;
-  text-decoration: none;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  box-shadow: 0 1px 2px #00000020;
-
-  & img {
-    width: 3rem;
-    margin-right: 1rem
-  }
-`
-
-export const LineBreaker = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ccc;
-  margin: 3rem 0;
-
-  span:not(:nth-child(2)) {
-    width: 50%;
-    height: 1px;
-    background: #eee;
-  }
-
-  span:nth-child(2) {
-    margin: 0 2rem; 
-  }
-`
 
 export const SignUpForm = styled.form`
   display: flex;
@@ -152,4 +120,13 @@ export const WelcomeContainer = styled.div`
   @media only screen and (max-width: 1000px) {
     display: none;
   }
+`
+
+export const InputWrapper = styled.span`
+    display: flex;
+    justify-content: space-between;
+
+    label {
+        width: 49%;
+    }
 `

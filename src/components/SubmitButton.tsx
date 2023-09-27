@@ -23,11 +23,4 @@ const Btn = styled.button`
         box-shadow: none;
     }
 `
-
-function LoginButton() {
-    return (
-        <Btn>Login</Btn>
-    )
-}
-
-export default LoginButton;
+export default Btn;

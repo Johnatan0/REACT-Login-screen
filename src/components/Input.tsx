@@ -32,7 +32,7 @@ const Label = styled.span`
     position: absolute;
     top: 2rem;
     left: 2rem;
-    color: #00000070;
+    color: #aaa;
     font-weight: 500;
     font-size: 1.8rem;
     transition: 250ms;
