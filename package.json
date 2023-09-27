@@ -1,4 +1,5 @@
 {
+  "homepage": "http://johnatan0.github.io/REACT-Login-screen",
   "name": "login-screen",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +9,9 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "host": "vite --host"
+    "host": "vite --host",
+    "predeploy" : "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.2.0",
