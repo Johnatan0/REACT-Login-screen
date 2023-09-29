@@ -19,7 +19,7 @@ export default function SignUpPage() {
         </InputWrapper>
         <Input label='Email' type='email' iconTag={<FaEnvelope/>}/>
         <Input label='Password' type='password' iconTag={<FaLock/>}/>
-        <Btn>Create account</Btn>
+        <Link to={'/dashboard'}><Btn>Create account</Btn></Link>
         </SignUpForm>
         </SignupContainer>
         <WelcomeContainer>

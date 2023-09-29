@@ -26,7 +26,7 @@ export default function LoginPage() {
             <Input label='Username' type='text'iconTag={<FaUser/>} lenght={15}/>
             <Input label='Email' type='email' iconTag={<FaEnvelope/>}/>
             <Input label='Password' type='password' iconTag={<FaLock/>}/>
-            <Btn>Login</Btn>
+            <Link to={'/dashboard'}><Btn>Login</Btn></Link>
           </SignUpForm>
           <MutedText>Not a member? <Link to={"/SignUp"}>Sign up</Link></MutedText>
         </SignupContainer>

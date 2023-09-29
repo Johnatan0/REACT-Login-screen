@@ -45,7 +45,7 @@ const Icon = styled.span`
 `
 
 
-function Input({label, type, iconTag, lenght = 20}: {label: string, type: string, iconTag: any, lenght?: number}) {
+function Input({label, type, iconTag, lenght = 30}: {label: string, type: string, iconTag: any, lenght?: number}) {
     return (
         <Container>
             <InputField type={type} maxLength={lenght} placeholder=''/>
