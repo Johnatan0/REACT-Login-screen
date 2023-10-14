@@ -1,4 +1,5 @@
-import { createGlobalStyle, styled } from "styled-components"
+import { createGlobalStyle, styled } from "styled-components";
+import { MoonIcon, SunIcon } from './icons/ThemeIcons';
 
 export const GlobalBookMarkStyle = createGlobalStyle`
     * {
@@ -12,11 +13,12 @@ export const GlobalBookMarkStyle = createGlobalStyle`
     }
 
     #root {
+        position: relative;
         display: flex;
         width: 100dvw;
         height: 100dvh;
-        background-color: #0e0e0e;
-        color: #fff;
+        background-color: ${props => props.theme.bgColor};
+        color: ${props => props.theme.textColor};
     }
 `
 export const SideBar = styled.aside`
@@ -25,9 +27,10 @@ export const SideBar = styled.aside`
     flex-basis: 284px;
     padding: 50px;
     overflow-y: auto;
+    background-color: inherit;
 
     @media only screen and (max-width: 700px) {
-        display: none
+        display: none;
     }
 `
 export const Main = styled.main`
@@ -56,7 +59,7 @@ export const User = styled.div`
 export const UserName = styled.div``
 export const UserEmail = styled.div`
     margin-top: 6px;
-    color: #5c5c5c;
+    color: ${props => props.theme.mutedText};
     font-size: 14px;
 `
 export const SideBarMenu = styled.div`
@@ -64,16 +67,18 @@ export const SideBarMenu = styled.div`
     flex-direction: column;
 `
 export const SideBarItem = styled.a`
-    color: #5c5c5c;
+    color: ${props => props.theme.mutedText};
     text-decoration: none;
     margin-top: 24px;
     font-size: 20px;
     font-weight: 500;
     transition: 0.3s;
+    transform-origin: left;
     cursor: pointer;
 
     &:hover {
-        color: #fff;
+        color: ${props => props.theme.textColor};
+        transform: scale(1.25)
     }
 `
 export const MainHeader = styled.div`
@@ -121,7 +126,7 @@ export const MainHeaderNav = styled.div`
     }
 `
 export const MainNavItem = styled.a`
-    color: #5c5c5c;
+    color: ${props => props.theme.mutedText};
     text-decoration: none;
     padding-bottom: 6px;
     transition: 0.3s;
@@ -129,9 +134,10 @@ export const MainNavItem = styled.a`
     margin-left: 24px;
 
     &:hover {
-        color: #fff;
-        border-bottom: 1px solid #fff;
-        transform: scale(1.35)
+        color: ${props => props.theme.textColor};
+        border-bottom: 1px solid ${props => props.theme.textColor};
+        transform: scale(1.25);
+        cursor: pointer;
     }
 
     @media only screen and (max-width: 700px) {
@@ -142,3 +148,57 @@ export const MainNavItem = styled.a`
 export const MainContent = styled.div`
     overflow-y: auto;
 `
+
+export const SwitchToggle = styled.div`
+    width: 60px;
+    height: 32px;
+    padding: 4px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    background-color: ${props => props.SwitchStatus === true ? '#ea4e34' : 'white'};
+
+    &:before {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: url(MoonIcon);
+        width: 25px;
+        height: 25px;
+        margin: 2px;
+        border-radius: 50%;
+        background-color: ${props => props.theme.bgColor};
+        color: black;
+        position: absolute;
+        left: ${props => props.SwitchStatus === true ? '29px' : '0'};
+        transition: 0.50s;
+    }
+`
+
+export const ThemeSlider = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+
+    & svg {
+        height: 32px;
+    }
+`
+
+export const lightTheme = {
+    reverseTheme: 'Dark mode',
+    bgColor: '#f5f5f5',
+    textColor: 'black',
+    mutedText: 'gray'
+}
+
+export const darkTheme = {
+    reverseTheme: 'Light mode',
+    bgColor: '#0e0e0e',
+    textColor: '#fff',
+    mutedText: '#5c5c5c'
+}

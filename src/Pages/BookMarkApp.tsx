@@ -1,8 +1,21 @@
-import {GlobalBookMarkStyle, SideBarMenu, SideBar, Main, User, UserEmail, UserName, SideBarItem, MainHeader, MainHeaderTitle, AddButton, MainHeaderNav, MainNavItem, MainContent} from './BookMarkStyles';
+import {GlobalBookMarkStyle, lightTheme, darkTheme, ThemeSlider, SwitchToggle, SideBarMenu, SideBar, Main, User, UserEmail, UserName, SideBarItem, MainHeader, MainHeaderTitle, AddButton, MainHeaderNav, MainNavItem, MainContent} from './BookMarkStyles';
+import { ThemeProvider } from 'styled-components';
+import { useState } from 'react';
+import { MoonIcon, SunIcon } from './icons/ThemeIcons';
 
 export default function BookMarkApp() {
+
+    const [pageTheme, setTheme] = useState(darkTheme);
+
+    const [SwitchOn, setIsOn] = useState(false);
+
+    const toggleSwitch = () => {
+        setIsOn(!SwitchOn);
+        setTheme(pageTheme === lightTheme ? darkTheme : lightTheme);
+    }
+
     return (
-    <>
+    <ThemeProvider theme={pageTheme}>
     <GlobalBookMarkStyle/>
     <SideBar>
         <User>
@@ -18,6 +31,13 @@ export default function BookMarkApp() {
             <SideBarItem>Book</SideBarItem>
             <SideBarItem>Snack</SideBarItem>
         </SideBarMenu>
+
+
+        <ThemeSlider>
+        <MoonIcon/>
+        <SwitchToggle SwitchStatus={SwitchOn} onClick={toggleSwitch}/>
+        <SunIcon/>
+        </ThemeSlider>
     </SideBar>
 
     <Main>
@@ -37,6 +57,6 @@ export default function BookMarkApp() {
         </MainContent>
 
     </Main>
-    </>
+    </ThemeProvider>
     )
 }
